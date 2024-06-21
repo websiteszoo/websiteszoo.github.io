@@ -196,10 +196,11 @@
         
       </a>
     
-    <button 
+     <button 
       class="navbar-menu-item darknavbar navbar-menu-btn" 
       aria-label="Toggle dark mode"
-      id="dark">
+      id="dark"
+      style="display: none;">
       <i class="iconfont icon-weather"></i>
     </button>
     <button 
@@ -540,6 +541,10 @@
     <script src="//instant.page/5.1.0" type="module"
       integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
     
+    
+      <script>
+        setTimeout(() => {localSearch("/search.json")}, 0)
+      </script>
     
   </body>
 </html>
