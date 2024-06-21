@@ -13,13 +13,13 @@
 輸入邀請資訊
 
 <ul>
-<li>樂創客服 mail：<a href="mailto:&#x73;&#117;&#x70;&#x70;&#111;&#114;&#x74;&#x40;&#119;&#x65;&#98;&#x73;&#105;&#116;&#101;&#115;&#x7a;&#x6f;&#111;&#46;&#x63;&#x6f;&#109;">&#x73;&#117;&#x70;&#x70;&#111;&#114;&#x74;&#x40;&#119;&#x65;&#98;&#x73;&#105;&#116;&#101;&#115;&#x7a;&#x6f;&#111;&#46;&#x63;&#x6f;&#109;</a></li>
+<li>樂創客服 mail：<a href="mailto:&#115;&#x75;&#112;&#x70;&#111;&#x72;&#116;&#64;&#x77;&#x65;&#98;&#115;&#x69;&#116;&#101;&#115;&#x7a;&#x6f;&#111;&#x2e;&#x63;&#x6f;&#x6d;">&#115;&#x75;&#112;&#x70;&#111;&#x72;&#116;&#64;&#x77;&#x65;&#98;&#115;&#x69;&#116;&#101;&#115;&#x7a;&#x6f;&#111;&#x2e;&#x63;&#x6f;&#x6d;</a></li>
 <li>Role：Admin</li>
 </ul>
 <p>輸入完畢，Send invitations（此時右上角會出現 成功的通知訊息）<br><img src="./08.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./08.png" class="lozad post-image"><br>返回上層<br><img src="./09.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./09.png" class="lozad post-image"><br>點擊Channels下方框框，進入Messaging API 設定<br><img src="./10.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./10.png" class="lozad post-image"><br>點擊切換到最右側的 Roles設定<br><img src="./11.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./11.png" class="lozad post-image"></p>
 <p>跟剛剛步驟一樣，點擊  Invite by email 輸入內容</p>
 <ul>
-<li>樂創客服 mail：<a href="mailto:&#x73;&#x75;&#112;&#x70;&#x6f;&#114;&#x74;&#x40;&#119;&#101;&#98;&#x73;&#x69;&#x74;&#x65;&#x73;&#x7a;&#111;&#x6f;&#x2e;&#x63;&#x6f;&#x6d;">&#x73;&#x75;&#112;&#x70;&#x6f;&#114;&#x74;&#x40;&#119;&#101;&#98;&#x73;&#x69;&#x74;&#x65;&#x73;&#x7a;&#111;&#x6f;&#x2e;&#x63;&#x6f;&#x6d;</a></li>
+<li>樂創客服 mail：<a href="mailto:&#x73;&#x75;&#x70;&#x70;&#111;&#x72;&#116;&#x40;&#x77;&#x65;&#x62;&#115;&#x69;&#x74;&#x65;&#x73;&#x7a;&#111;&#x6f;&#x2e;&#x63;&#x6f;&#x6d;">&#x73;&#x75;&#x70;&#x70;&#111;&#x72;&#116;&#x40;&#x77;&#x65;&#x62;&#115;&#x69;&#x74;&#x65;&#x73;&#x7a;&#111;&#x6f;&#x2e;&#x63;&#x6f;&#x6d;</a></li>
 <li>Role：Admin<br>輸入完畢，Send invitations<img src="./13.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./13.png" class="lozad post-image"></li>
 </ul>
 <h3 id="5-等待樂創工程師設定"><a href="#5-等待樂創工程師設定" class="headerlink" title="5.等待樂創工程師設定"></a>5.等待樂創工程師設定</h3><p>接著就是等待管理員設定囉！！過程約3-5分鐘</p>
