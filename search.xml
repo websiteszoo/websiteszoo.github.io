@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>樂創預約系統-綁定官方帳號第一階段說明</title>
+    <url>/2024/06/21/booking-s1/</url>
+    <content><![CDATA[<h3 id="1-進入-LINE官方帳號-後台"><a href="#1-進入-LINE官方帳號-後台" class="headerlink" title="1.進入 LINE官方帳號 後台"></a>1.進入 LINE官方帳號 後台</h3><p>請使用電腦裝置進入 <a href="https://manager.line.biz/">Line Official Account Manager</a></p>
+<h3 id="2-點選設定"><a href="#2-點選設定" class="headerlink" title="2.點選設定"></a>2.點選設定</h3><p>登入官方帳號管理後台，會看到此畫面 ，點右上角 設定<br><img src="./01.png" width="80%" ></p>
+<h3 id="3-進入-LINE-Developers"><a href="#3-進入-LINE-Developers" class="headerlink" title="3.進入 LINE Developers"></a>3.進入 LINE Developers</h3><p>點選左側選單 設定🔽 展開  &gt; Messaging API &gt;  LINE Developers<br><img src="./02.png" width="80%" ></p>
+<p>點選右上角 Console，進入 LINE Developers 控制台<br><img src="./03.png" width="80%" ></p>
+<h3 id="4-分享權限給樂創"><a href="#4-分享權限給樂創" class="headerlink" title="4.分享權限給樂創"></a>4.分享權限給樂創</h3><p>點選 Provider下的帳號<br><img src="./05.png" width="80%" ></p>
+<p>進入設定頁面，點擊切換到 Roles<br><img src="./06.png" width="80%" ><br>接著點擊 Invite by email</p>
+<img src="./07.png" width="80%" >
+輸入邀請資訊
+
+<ul>
+<li>樂創客服 mail：<a href="mailto:&#115;&#x75;&#x70;&#x70;&#111;&#x72;&#x74;&#64;&#119;&#101;&#98;&#x73;&#x69;&#116;&#101;&#x73;&#x7a;&#x6f;&#111;&#x2e;&#x63;&#111;&#x6d;">&#115;&#x75;&#x70;&#x70;&#111;&#x72;&#x74;&#64;&#119;&#101;&#98;&#x73;&#x69;&#116;&#101;&#x73;&#x7a;&#x6f;&#111;&#x2e;&#x63;&#111;&#x6d;</a></li>
+<li>Role：Admin</li>
+</ul>
+<p>輸入完畢，Send invitations（此時右上角會出現 成功的通知訊息）<br><img src="./08.png" width="80%" ><br>返回上層<br><img src="./09.png" width="80%" ><br>點擊Channels下方框框，進入Messaging API 設定<br><img src="./10.png" width="80%" ><br>點擊切換到最右側的 Roles設定<br><img src="./11.png" width="80%" ></p>
+<p>跟剛剛步驟一樣，點擊  Invite by email 輸入內容</p>
+<ul>
+<li>樂創客服 mail：<a href="mailto:&#115;&#117;&#x70;&#112;&#111;&#x72;&#116;&#64;&#x77;&#101;&#x62;&#115;&#x69;&#116;&#101;&#115;&#x7a;&#x6f;&#x6f;&#x2e;&#99;&#111;&#109;">&#115;&#117;&#x70;&#112;&#111;&#x72;&#116;&#64;&#x77;&#101;&#x62;&#115;&#x69;&#116;&#101;&#115;&#x7a;&#x6f;&#x6f;&#x2e;&#99;&#111;&#109;</a></li>
+<li>Role：Admin<br>輸入完畢，Send invitations<img src="./13.png" width="80%" ></li>
+</ul>
+<h3 id="5-等待樂創工程師設定"><a href="#5-等待樂創工程師設定" class="headerlink" title="5.等待樂創工程師設定"></a>5.等待樂創工程師設定</h3><p>接著就是等待管理員設定囉！！過程約3-5分鐘</p>
+<h3 id="6-綁定完成"><a href="#6-綁定完成" class="headerlink" title="6.綁定完成"></a>6.綁定完成</h3><p>重新登入後，成功畫面如下<br><img src="./14.png" width="80%" ></p>
+]]></content>
+      <categories>
+        <category>樂創預約</category>
+      </categories>
+      <tags>
+        <tag>樂創預約</tag>
+        <tag>操作說明</tag>
+      </tags>
+  </entry>
+</search>
