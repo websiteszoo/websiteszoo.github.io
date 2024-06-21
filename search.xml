@@ -1,36 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>樂創預約系統-綁定官方帳號第一階段說明</title>
+    <title>樂創預約綁定官方帳號說明-樂創預約系統</title>
     <url>/2024/06/21/booking-s1/</url>
     <content><![CDATA[<h3 id="1-進入-LINE官方帳號-後台"><a href="#1-進入-LINE官方帳號-後台" class="headerlink" title="1.進入 LINE官方帳號 後台"></a>1.進入 LINE官方帳號 後台</h3><p>請使用電腦裝置進入 <a href="https://manager.line.biz/">Line Official Account Manager</a></p>
-<h3 id="2-點選設定"><a href="#2-點選設定" class="headerlink" title="2.點選設定"></a>2.點選設定</h3><p>登入官方帳號管理後台，會看到此畫面 ，點右上角 設定<br><img src="./01.png" width="80%" ></p>
-<h3 id="3-進入-LINE-Developers"><a href="#3-進入-LINE-Developers" class="headerlink" title="3.進入 LINE Developers"></a>3.進入 LINE Developers</h3><p>點選左側選單 設定🔽 展開  &gt; Messaging API &gt;  LINE Developers<br><img src="./02.png" width="80%" ></p>
-<p>點選右上角 Console，進入 LINE Developers 控制台<br><img src="./03.png" width="80%" ></p>
-<h3 id="4-分享權限給樂創"><a href="#4-分享權限給樂創" class="headerlink" title="4.分享權限給樂創"></a>4.分享權限給樂創</h3><p>點選 Provider下的帳號<br><img src="./05.png" width="80%" ></p>
-<p>進入設定頁面，點擊切換到 Roles<br><img src="./06.png" width="80%" ><br>接著點擊 Invite by email</p>
-<img src="./07.png" width="80%" >
+<h3 id="2-點選設定"><a href="#2-點選設定" class="headerlink" title="2.點選設定"></a>2.點選設定</h3><p>登入官方帳號管理後台，會看到此畫面 ，點右上角 設定<br><img src="./01.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./01.png" class="lozad post-image"></p>
+<h3 id="3-進入-LINE-Developers"><a href="#3-進入-LINE-Developers" class="headerlink" title="3.進入 LINE Developers"></a>3.進入 LINE Developers</h3><p>點選左側選單 設定🔽 展開  &gt; Messaging API &gt;  LINE Developers<br><img src="./02.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./02.png" class="lozad post-image"></p>
+<p>點選右上角 Console，進入 LINE Developers 控制台<br><img src="./03.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./03.png" class="lozad post-image"></p>
+<h3 id="4-分享權限給樂創"><a href="#4-分享權限給樂創" class="headerlink" title="4.分享權限給樂創"></a>4.分享權限給樂創</h3><p>點選 Provider下的帳號<br><img src="./05.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./05.png" class="lozad post-image"></p>
+<p>進入設定頁面，點擊切換到 Roles<br><img src="./06.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./06.png" class="lozad post-image"><br>接著點擊 Invite by email</p>
+<img src="./07.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./07.png" class="lozad post-image">
 輸入邀請資訊
 
 <ul>
-<li>樂創客服 mail：<a href="mailto:&#115;&#x75;&#x70;&#x70;&#111;&#x72;&#x74;&#64;&#119;&#101;&#98;&#x73;&#x69;&#116;&#101;&#x73;&#x7a;&#x6f;&#111;&#x2e;&#x63;&#111;&#x6d;">&#115;&#x75;&#x70;&#x70;&#111;&#x72;&#x74;&#64;&#119;&#101;&#98;&#x73;&#x69;&#116;&#101;&#x73;&#x7a;&#x6f;&#111;&#x2e;&#x63;&#111;&#x6d;</a></li>
+<li>樂創客服 mail：<a href="mailto:&#x73;&#117;&#x70;&#x70;&#111;&#114;&#x74;&#x40;&#119;&#x65;&#98;&#x73;&#105;&#116;&#101;&#115;&#x7a;&#x6f;&#111;&#46;&#x63;&#x6f;&#109;">&#x73;&#117;&#x70;&#x70;&#111;&#114;&#x74;&#x40;&#119;&#x65;&#98;&#x73;&#105;&#116;&#101;&#115;&#x7a;&#x6f;&#111;&#46;&#x63;&#x6f;&#109;</a></li>
 <li>Role：Admin</li>
 </ul>
-<p>輸入完畢，Send invitations（此時右上角會出現 成功的通知訊息）<br><img src="./08.png" width="80%" ><br>返回上層<br><img src="./09.png" width="80%" ><br>點擊Channels下方框框，進入Messaging API 設定<br><img src="./10.png" width="80%" ><br>點擊切換到最右側的 Roles設定<br><img src="./11.png" width="80%" ></p>
+<p>輸入完畢，Send invitations（此時右上角會出現 成功的通知訊息）<br><img src="./08.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./08.png" class="lozad post-image"><br>返回上層<br><img src="./09.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./09.png" class="lozad post-image"><br>點擊Channels下方框框，進入Messaging API 設定<br><img src="./10.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./10.png" class="lozad post-image"><br>點擊切換到最右側的 Roles設定<br><img src="./11.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./11.png" class="lozad post-image"></p>
 <p>跟剛剛步驟一樣，點擊  Invite by email 輸入內容</p>
 <ul>
-<li>樂創客服 mail：<a href="mailto:&#115;&#117;&#x70;&#112;&#111;&#x72;&#116;&#64;&#x77;&#101;&#x62;&#115;&#x69;&#116;&#101;&#115;&#x7a;&#x6f;&#x6f;&#x2e;&#99;&#111;&#109;">&#115;&#117;&#x70;&#112;&#111;&#x72;&#116;&#64;&#x77;&#101;&#x62;&#115;&#x69;&#116;&#101;&#115;&#x7a;&#x6f;&#x6f;&#x2e;&#99;&#111;&#109;</a></li>
-<li>Role：Admin<br>輸入完畢，Send invitations<img src="./13.png" width="80%" ></li>
+<li>樂創客服 mail：<a href="mailto:&#x73;&#x75;&#112;&#x70;&#x6f;&#114;&#x74;&#x40;&#119;&#101;&#98;&#x73;&#x69;&#x74;&#x65;&#x73;&#x7a;&#111;&#x6f;&#x2e;&#x63;&#x6f;&#x6d;">&#x73;&#x75;&#112;&#x70;&#x6f;&#114;&#x74;&#x40;&#119;&#101;&#98;&#x73;&#x69;&#x74;&#x65;&#x73;&#x7a;&#111;&#x6f;&#x2e;&#x63;&#x6f;&#x6d;</a></li>
+<li>Role：Admin<br>輸入完畢，Send invitations<img src="./13.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./13.png" class="lozad post-image"></li>
 </ul>
 <h3 id="5-等待樂創工程師設定"><a href="#5-等待樂創工程師設定" class="headerlink" title="5.等待樂創工程師設定"></a>5.等待樂創工程師設定</h3><p>接著就是等待管理員設定囉！！過程約3-5分鐘</p>
-<h3 id="6-綁定完成"><a href="#6-綁定完成" class="headerlink" title="6.綁定完成"></a>6.綁定完成</h3><p>重新登入後，成功畫面如下<br><img src="./14.png" width="80%" ></p>
+<h3 id="6-綁定完成"><a href="#6-綁定完成" class="headerlink" title="6.綁定完成"></a>6.綁定完成</h3><p>重新登入後，成功畫面如下<br><img src="./14.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./14.png" class="lozad post-image"></p>
 ]]></content>
       <categories>
-        <category>樂創預約</category>
+        <category>樂創預約操作說明</category>
       </categories>
       <tags>
         <tag>樂創預約</tag>
-        <tag>操作說明</tag>
+        <tag>樂創預約操作說明</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>設定樂創預約在 Line 上的顯示方式-樂創預約系統</title>
+    <url>/2024/06/21/booking-s2/</url>
+    <content><![CDATA[<h2 id="顯示方式"><a href="#顯示方式" class="headerlink" title="顯示方式"></a>顯示方式</h2><p>預約系統呈現給顧客有兩種方法</p>
+<h3 id="方式一-直接顯示網址"><a href="#方式一-直接顯示網址" class="headerlink" title="方式一 直接顯示網址"></a>方式一 直接顯示網址</h3><img src="./01.jpg" width="30%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./01.jpg" class="lozad post-image">
+
+<h3 id="方式二-於圖文選單顯示"><a href="#方式二-於圖文選單顯示" class="headerlink" title="方式二  於圖文選單顯示"></a>方式二  於圖文選單顯示</h3><img src="./02.jpg" width="30%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./02.jpg" class="lozad post-image">
+
+
+<h2 id="開始設定"><a href="#開始設定" class="headerlink" title="開始設定"></a>開始設定</h2><h3 id="Step-1-取得連結"><a href="#Step-1-取得連結" class="headerlink" title="Step 1 取得連結"></a>Step 1 取得連結</h3><p>前往 <a href="https://booking.linee.io/admin/">樂創預約</a> 後台 點選設定選項內的 Line 官方帳號設定，第二個區塊會顯示啟用模組對應的連結網址<br><img src="./03.png" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./03.png" class="lozad post-image"></p>
+<h3 id="Step-2-登入官方帳號"><a href="#Step-2-登入官方帳號" class="headerlink" title="Step 2 登入官方帳號"></a>Step 2 登入官方帳號</h3><p>進入官方帳號管理後台 <a href="https://manager.line.biz/">Line Official Account Manager</a></p>
+<h3 id="Step-3-設定網址"><a href="#Step-3-設定網址" class="headerlink" title="Step 3 設定網址"></a>Step 3 設定網址</h3><h4 id="方式一-直接顯示網址-1"><a href="#方式一-直接顯示網址-1" class="headerlink" title="方式一 直接顯示網址"></a>方式一 直接顯示網址</h4><p>於右側選單選擇 聊天室相關 &gt; 加入好友的歡迎訊息<br><img src="./04.jpg" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./04.jpg" class="lozad post-image"></p>
+<p>進入頁面後於到訊息設定區塊內填入於 Step 1 取得的連結，確認沒問題後點選儲存變更<br><img src="./05.jpg" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./05.jpg" class="lozad post-image"></p>
+<h4 id="方式二-於圖文選單顯示-1"><a href="#方式二-於圖文選單顯示-1" class="headerlink" title="方式二  於圖文選單顯示"></a>方式二  於圖文選單顯示</h4><p>於右側選單選擇 聊天室相關 &gt; 圖文選單 &gt; 新增圖文選單<br><img src="./06.jpg" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./06.jpg" class="lozad post-image"></p>
+<p>內容設定版型 請參考 <a href="https://static.line-scdn.net/biz-app/16bd9ea9e03/manager/static/LINE_rich_menu_design_template.zip">圖文選單設計規範</a> 選擇所要使用的版型，上傳對應選單的圖片，設定動作選擇連結 並在網址輸入欄內填入於 Step 1 取得的連結，確認沒問題後點選儲存變更<br><img src="./07.jpg" width="80%"  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="./07.jpg" class="lozad post-image"></p>
+]]></content>
+      <categories>
+        <category>樂創預約操作說明</category>
+      </categories>
+      <tags>
+        <tag>樂創預約</tag>
+        <tag>樂創預約操作說明</tag>
       </tags>
   </entry>
 </search>
