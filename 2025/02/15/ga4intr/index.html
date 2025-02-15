@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="樂創布拉格">
+  <link 
+    rel="icon" 
+    href="/img/logo.png">
+  <title>GA4 完整介紹與實作指南：網站數據分析新時代</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="GA4 完整介紹與實作指南：網站數據分析新時代">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://blog.websiteszoo.com/2025/02/15/ga4intr/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/img/logo.png">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2025-02-15">
+      <meta 
+        property="og:article:modified_time" 
+        content="2025-02-15">
+      <meta 
+        property="og:article:author" 
+        content="樂創數位行銷">
+      
+        
+          <meta 
+            property="og:article:tag" 
+            content="SEO">
+        
+          <meta 
+            property="og:article:tag" 
+            content="網頁開發">
+        
+          <meta 
+            property="og:article:tag" 
+            content="網路行銷">
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+        <img 
+          class="navbar-logo-img"
+          width="32"
+          height="32"
+          src="/img/logo.png" 
+          alt="blog logo">
+      
+      <span class="navbar-logo-dsc">樂創布拉格</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/" 
+        class="navbar-menu-item">
+        
+          首頁
+        
+      </a>
+    
+      <a 
+        target="_blank" rel="noopener" href="https://websiteszoo.com" 
+        class="navbar-menu-item">
+        
+          樂創官網
+        
+      </a>
+    
+      <a 
+        href="/tags" 
+        class="navbar-menu-item">
+        
+          標籤
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          分類
+        
+      </a>
+    
+     <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark"
+      style="display: none;">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="請輸入查詢內容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/img/logo.png" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">樂創數位行銷</p>
+<p class="author-description"></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>7</span>
+    <span>文章</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>2</span>
+    <span>分類</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>4</span>
+    <span>標籤</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目錄
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GA4-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-text">GA4 是什麼？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GA4-%E8%88%87-UA-%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E7%95%B0"><span class="toc-text">GA4 與 UA 的主要差異</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GA4-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="toc-text">GA4 的核心功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3-%E4%BA%8B%E4%BB%B6%E5%B0%8E%E5%90%91%E7%9A%84%E6%95%B8%E6%93%9A%E6%A8%A1%E5%9E%8B"><span class="toc-text">1️⃣ 事件導向的數據模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%B8%8F%E2%83%A3-%E8%87%AA%E5%8B%95%E6%94%B6%E9%9B%86%E4%BA%8B%E4%BB%B6-Enhanced-Measurement"><span class="toc-text">2️⃣ 自動收集事件 (Enhanced Measurement)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%B8%8F%E2%83%A3-AI-%E9%A0%90%E6%B8%AC%E5%8A%9F%E8%83%BD"><span class="toc-text">3️⃣ AI 預測功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%B8%8F%E2%83%A3-%E8%B7%A8%E8%A3%9D%E7%BD%AE%E8%88%87%E8%B7%A8%E5%B9%B3%E5%8F%B0%E8%BF%BD%E8%B9%A4"><span class="toc-text">4️⃣ 跨裝置與跨平台追蹤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%EF%B8%8F%E2%83%A3-%E9%9A%B1%E7%A7%81%E4%BF%9D%E8%AD%B7%E8%88%87%E7%84%A1-Cookie-%E8%BF%BD%E8%B9%A4"><span class="toc-text">5️⃣ 隱私保護與無 Cookie 追蹤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A8%AD%E5%AE%9A-GA4"><span class="toc-text">如何設定 GA4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E5%BB%BA%E7%AB%8B-GA4-%E5%B8%B3%E6%88%B6"><span class="toc-text">步驟 1：建立 GA4 帳戶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E5%AE%89%E8%A3%9D-GA4-%E8%BF%BD%E8%B9%A4%E7%A2%BC"><span class="toc-text">步驟 2：安裝 GA4 追蹤碼</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-1%EF%BC%9A%E7%9B%B4%E6%8E%A5%E5%B5%8C%E5%85%A5%E7%B6%B2%E7%AB%99"><span class="toc-text">方法 1：直接嵌入網站</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-2%EF%BC%9A%E4%BD%BF%E7%94%A8-Google-Tag-Manager"><span class="toc-text">方法 2：使用 Google Tag Manager</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GA4-%E5%9C%A8-SEO-%E7%9A%84%E6%87%89%E7%94%A8"><span class="toc-text">GA4 在 SEO 的應用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3-%E8%BF%BD%E8%B9%A4%E7%B6%B2%E7%AB%99%E6%B5%81%E9%87%8F%E4%BE%86%E6%BA%90"><span class="toc-text">1️⃣ 追蹤網站流量來源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%B8%8F%E2%83%A3-%E7%9B%A3%E6%B8%AC%E7%94%A8%E6%88%B6%E8%A1%8C%E7%82%BA"><span class="toc-text">2️⃣ 監測用戶行為</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%B8%8F%E2%83%A3-%E4%BA%8B%E4%BB%B6%E8%BF%BD%E8%B9%A4%E8%88%87%E8%BD%89%E6%8F%9B%E8%A8%AD%E5%AE%9A"><span class="toc-text">3️⃣ 事件追蹤與轉換設定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%B8%8F%E2%83%A3-%E8%A8%AD%E5%AE%9A-GA4-SEO-%E5%84%80%E8%A1%A8%E6%9D%BF"><span class="toc-text">4️⃣ 設定 GA4 SEO 儀表板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GA4-%E7%9A%84%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-text">GA4 的常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-GA4-%E6%98%AF%E5%90%A6%E6%9C%83%E5%BD%B1%E9%9F%BF%E5%8E%9F%E6%9C%AC%E7%9A%84-UA-%E6%95%B8%E6%93%9A%EF%BC%9F"><span class="toc-text">1. GA4 是否會影響原本的 UA 數據？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A6%82%E4%BD%95%E8%BF%BD%E8%B9%A4%E7%89%B9%E5%AE%9A%E7%9A%84%E6%8C%89%E9%88%95%E9%BB%9E%E6%93%8A%EF%BC%9F"><span class="toc-text">2. 如何追蹤特定的按鈕點擊？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-GA4-%E6%98%AF%E5%90%A6%E9%81%A9%E7%94%A8%E6%96%BC-WordPress%EF%BC%9F"><span class="toc-text">3. GA4 是否適用於 WordPress？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>分類
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC/">
+        <div class="categories-list-item">
+          網頁開發
+          <span class="categories-list-item-badge">4</span>
+        </div>
+      </a>
+    
+      <a href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+        <div class="categories-list-item">
+          網路行銷
+          <span class="categories-list-item-badge">3</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>熱門標籤
+  </div>
+  <div class="tags-list">
+    
+      <a 
+        href="/tags/%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC/" 
+        title="網頁開發">
+        <div class="tags-list-item">網頁開發</div>
+      </a>
+    
+      <a 
+        href="/tags/SEO/" 
+        title="SEO">
+        <div class="tags-list-item">SEO</div>
+      </a>
+    
+      <a 
+        href="/tags/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/" 
+        title="網路行銷">
+        <div class="tags-list-item">網路行銷</div>
+      </a>
+    
+      <a 
+        href="/tags/%E7%B6%B2%E8%B7%AF%E5%AE%89%E5%85%A8/" 
+        title="網路安全">
+        <div class="tags-list-item">網路安全</div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      GA4 完整介紹與實作指南：網站數據分析新時代
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2025-02-15T15:04:10.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2025-02-15</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/" 
+          class="post-meta-link">
+          網路行銷
+        </a>
+      
+    
+    
+  </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/SEO/" 
+            class="post-meta-link">
+            SEO
+          </a>
+        
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC/" 
+            class="post-meta-link">
+            網頁開發
+          </a>
+        
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/" 
+            class="post-meta-link">
+            網路行銷
+          </a>
+        
+      </div>
+    </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>隨著 Google Analytics (GA) 的演進，<strong>Google Analytics 4 (GA4)</strong> 正式取代了過去的 Universal Analytics (UA)。GA4 帶來了全新的數據模型，提供更靈活的數據追蹤方式，並強調 <strong>跨平台分析、隱私保護與 AI 預測</strong>。本篇文章將深入解析 GA4 的特點、核心功能、設定步驟，以及如何透過 GA4 提升網站的 <strong>SEO</strong> 效果。</p>
+<hr>
+<h2 id="GA4-是什麼？"><a href="#GA4-是什麼？" class="headerlink" title="GA4 是什麼？"></a><strong>GA4 是什麼？</strong></h2><p>GA4 是 <strong>Google Analytics 的最新版本</strong>，相較於舊版 Universal Analytics (UA)，GA4 採用事件導向的數據模型，支援 <strong>網站與 APP 的統一追蹤</strong>，並內建強大的 AI 預測功能，幫助企業更準確地分析用戶行為。</p>
+<h3 id="GA4-與-UA-的主要差異"><a href="#GA4-與-UA-的主要差異" class="headerlink" title="GA4 與 UA 的主要差異"></a><strong>GA4 與 UA 的主要差異</strong></h3><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>GA4</th>
+<th>Universal Analytics (UA)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>數據模型</strong></td>
+<td>事件導向</td>
+<td>以 Session 為基礎</td>
+</tr>
+<tr>
+<td><strong>跨平台追蹤</strong></td>
+<td>支援 (Web + App)</td>
+<td>僅適用於網站</td>
+</tr>
+<tr>
+<td><strong>AI 預測</strong></td>
+<td>內建 AI 預測功能</td>
+<td>無 AI 預測</td>
+</tr>
+<tr>
+<td><strong>隱私保護</strong></td>
+<td>無需 Cookie 仍可追蹤</td>
+<td>依賴 Cookie</td>
+</tr>
+<tr>
+<td><strong>事件追蹤</strong></td>
+<td>自動追蹤事件</td>
+<td>需設定目標</td>
+</tr>
+</tbody></table>
+<p>GA4 透過事件模型來記錄使用者行為，這意味著我們可以追蹤更細緻的數據，而不受限於傳統的 <strong>Session-based 設計</strong>。</p>
+<hr>
+<h2 id="GA4-的核心功能"><a href="#GA4-的核心功能" class="headerlink" title="GA4 的核心功能"></a><strong>GA4 的核心功能</strong></h2><h3 id="1️⃣-事件導向的數據模型"><a href="#1️⃣-事件導向的數據模型" class="headerlink" title="1️⃣ 事件導向的數據模型"></a>1️⃣ <strong>事件導向的數據模型</strong></h3><p>GA4 將所有互動視為 **事件 (Event)**，例如：</p>
+<ul>
+<li><strong>點擊按鈕</strong> (<code>click</code>)</li>
+<li><strong>觀看影片</strong> (<code>video_start</code>)</li>
+<li><strong>填寫表單</strong> (<code>generate_lead</code>)</li>
+</ul>
+<p>這樣的設計讓網站擁有更靈活的數據追蹤方式，不再局限於傳統的 **瀏覽量 (Pageviews) 與工作階段 (Sessions)**。</p>
+<h3 id="2️⃣-自動收集事件-Enhanced-Measurement"><a href="#2️⃣-自動收集事件-Enhanced-Measurement" class="headerlink" title="2️⃣ 自動收集事件 (Enhanced Measurement)"></a>2️⃣ <strong>自動收集事件 (Enhanced Measurement)</strong></h3><p>GA4 內建「**增強型測量 (Enhanced Measurement)**」，開啟後可自動收集：</p>
+<ul>
+<li><strong>網頁瀏覽</strong> (<code>page_view</code>)</li>
+<li><strong>網站內搜尋</strong> (<code>view_search_results</code>)</li>
+<li><strong>滾動事件</strong> (<code>scroll</code>)</li>
+<li><strong>影片互動</strong> (<code>video_start</code>, <code>video_progress</code>, <code>video_complete</code>)</li>
+</ul>
+<p>這大幅降低開發人員的工作量，讓企業能快速獲取有價值的數據。</p>
+<h3 id="3️⃣-AI-預測功能"><a href="#3️⃣-AI-預測功能" class="headerlink" title="3️⃣ AI 預測功能"></a>3️⃣ <strong>AI 預測功能</strong></h3><p>GA4 內建 AI 模型，可預測：</p>
+<ul>
+<li><strong>未來 7 天內可能流失的用戶</strong></li>
+<li><strong>高價值客戶</strong></li>
+<li><strong>轉換機率最高的用戶</strong></li>
+</ul>
+<p>這讓行銷人員可以更精準地進行 **再行銷 (Remarketing)**，提升廣告投報率 (ROI)。</p>
+<h3 id="4️⃣-跨裝置與跨平台追蹤"><a href="#4️⃣-跨裝置與跨平台追蹤" class="headerlink" title="4️⃣ 跨裝置與跨平台追蹤"></a>4️⃣ <strong>跨裝置與跨平台追蹤</strong></h3><p>GA4 支援 <strong>跨裝置 (跨手機、平板、電腦) 與跨平台 (App + Web)</strong> 整合，能更準確地計算 <strong>同一用戶</strong> 的行為，而不會因不同裝置而重複計算。</p>
+<h3 id="5️⃣-隱私保護與無-Cookie-追蹤"><a href="#5️⃣-隱私保護與無-Cookie-追蹤" class="headerlink" title="5️⃣ 隱私保護與無 Cookie 追蹤"></a>5️⃣ <strong>隱私保護與無 Cookie 追蹤</strong></h3><p>GA4 透過 <strong>機器學習與建模</strong> 來彌補 Cookie 逐步淘汰後的數據缺失，確保網站仍能獲得高品質的數據。</p>
+<hr>
+<h2 id="如何設定-GA4"><a href="#如何設定-GA4" class="headerlink" title="如何設定 GA4"></a><strong>如何設定 GA4</strong></h2><h3 id="步驟-1：建立-GA4-帳戶"><a href="#步驟-1：建立-GA4-帳戶" class="headerlink" title="步驟 1：建立 GA4 帳戶"></a><strong>步驟 1：建立 GA4 帳戶</strong></h3><ol>
+<li>進入 <a target="_blank" rel="noopener" href="https://analytics.google.com/">Google Analytics</a> 並點擊「管理」。</li>
+<li>選擇 <strong>「建立帳戶」</strong>，輸入公司或網站名稱。</li>
+<li>新增 **GA4 資源 (Property)**，設定時區與貨幣。</li>
+<li>選擇「網站」或「應用程式」並填寫 URL。</li>
+</ol>
+<h3 id="步驟-2：安裝-GA4-追蹤碼"><a href="#步驟-2：安裝-GA4-追蹤碼" class="headerlink" title="步驟 2：安裝 GA4 追蹤碼"></a><strong>步驟 2：安裝 GA4 追蹤碼</strong></h3><h4 id="方法-1：直接嵌入網站"><a href="#方法-1：直接嵌入網站" class="headerlink" title="方法 1：直接嵌入網站"></a><strong>方法 1：直接嵌入網站</strong></h4><ol>
+<li>進入 <strong>GA4 資源 &gt; 資料串流</strong>。</li>
+<li>複製 Google Tag (<code>gtag.js</code>) 追蹤碼。</li>
+<li>貼到 <head> 標籤內：</li>
+</ol>
+<pre class="highlight"><span class="line"><span class="tag">&lt;<span class="name">script</span></span></span><br><span class="line"><span class="tag">  <span class="attr">async</span></span></span><br><span class="line"><span class="tag">  <span class="attr">src</span>=<span class="string">&quot;https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">window</span>.<span class="property">dataLayer</span> = <span class="variable language_">window</span>.<span class="property">dataLayer</span> || [];</span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">function</span> <span class="title function_">gtag</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    dataLayer.<span class="title function_">push</span>(<span class="variable language_">arguments</span>);</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">gtag</span>(<span class="string">&quot;js&quot;</span>, <span class="keyword">new</span> <span class="title class_">Date</span>());</span></span><br><span class="line"><span class="language-javascript">  <span class="title function_">gtag</span>(<span class="string">&quot;config&quot;</span>, <span class="string">&quot;G-XXXXXXX&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre>
+
+<h4 id="方法-2：使用-Google-Tag-Manager"><a href="#方法-2：使用-Google-Tag-Manager" class="headerlink" title="方法 2：使用 Google Tag Manager"></a><strong>方法 2：使用 Google Tag Manager</strong></h4><ol>
+<li><strong>開啟 Google Tag Manager</strong>，新增「GA4 設定」代碼。</li>
+<li>設定「變數」，輸入 GA4 **測量 ID (Measurement ID)**。</li>
+<li>設定「觸發條件」為「所有網頁」。</li>
+<li>儲存並發佈。</li>
+</ol>
+<hr>
+<h2 id="GA4-在-SEO-的應用"><a href="#GA4-在-SEO-的應用" class="headerlink" title="GA4 在 SEO 的應用"></a><strong>GA4 在 SEO 的應用</strong></h2><h3 id="1️⃣-追蹤網站流量來源"><a href="#1️⃣-追蹤網站流量來源" class="headerlink" title="1️⃣ 追蹤網站流量來源"></a><strong>1️⃣ 追蹤網站流量來源</strong></h3><p>GA4 可監測來自 Google、Bing、Facebook、YouTube 等不同流量來源，幫助 <strong>分析哪些 SEO 策略最有效</strong>。</p>
+<h3 id="2️⃣-監測用戶行為"><a href="#2️⃣-監測用戶行為" class="headerlink" title="2️⃣ 監測用戶行為"></a><strong>2️⃣ 監測用戶行為</strong></h3><ul>
+<li>追蹤<strong>哪些頁面跳出率高</strong></li>
+<li>分析<strong>熱門內容</strong></li>
+<li>監測<strong>內部搜尋 (Search Query)</strong></li>
+</ul>
+<p>這有助於改善 <strong>內容行銷策略</strong>，確保訪客能找到有價值的內容。</p>
+<h3 id="3️⃣-事件追蹤與轉換設定"><a href="#3️⃣-事件追蹤與轉換設定" class="headerlink" title="3️⃣ 事件追蹤與轉換設定"></a><strong>3️⃣ 事件追蹤與轉換設定</strong></h3><p>可透過 GA4 設定：</p>
+<ul>
+<li><strong>表單填寫</strong> (<code>generate_lead</code>)</li>
+<li><strong>商品購買</strong> (<code>purchase</code>)</li>
+<li><strong>按鈕點擊</strong> (<code>click</code>)</li>
+</ul>
+<p>這讓企業能清楚知道 <strong>SEO 是否帶來有效轉換</strong>。</p>
+<h3 id="4️⃣-設定-GA4-SEO-儀表板"><a href="#4️⃣-設定-GA4-SEO-儀表板" class="headerlink" title="4️⃣ 設定 GA4 SEO 儀表板"></a><strong>4️⃣ 設定 GA4 SEO 儀表板</strong></h3><p>透過 <strong>GA4 與 Looker Studio (原 Data Studio)</strong> 整合，可建立 <strong>SEO 儀表板</strong>，即時監測網站的 SEO 表現。</p>
+<hr>
+<h2 id="GA4-的常見問題"><a href="#GA4-的常見問題" class="headerlink" title="GA4 的常見問題"></a><strong>GA4 的常見問題</strong></h2><h3 id="1-GA4-是否會影響原本的-UA-數據？"><a href="#1-GA4-是否會影響原本的-UA-數據？" class="headerlink" title="1. GA4 是否會影響原本的 UA 數據？"></a><strong>1. GA4 是否會影響原本的 UA 數據？</strong></h3><p>不會，GA4 是全新的追蹤方式，不影響舊版 UA，但建議<strong>盡早轉移到 GA4</strong>。</p>
+<h3 id="2-如何追蹤特定的按鈕點擊？"><a href="#2-如何追蹤特定的按鈕點擊？" class="headerlink" title="2. 如何追蹤特定的按鈕點擊？"></a><strong>2. 如何追蹤特定的按鈕點擊？</strong></h3><p>可以透過 gtag.js 或 Google Tag Manager 設定：</p>
+<pre class="highlight"><span class="line"><span class="title function_">gtag</span>(<span class="string">&quot;event&quot;</span>, <span class="string">&quot;click&quot;</span>, &#123;</span><br><span class="line">  <span class="attr">event_category</span>: <span class="string">&quot;button&quot;</span>,</span><br><span class="line">  <span class="attr">event_label</span>: <span class="string">&quot;CTA Click&quot;</span>,</span><br><span class="line">&#125;);</span><br></pre>
+
+<h3 id="3-GA4-是否適用於-WordPress？"><a href="#3-GA4-是否適用於-WordPress？" class="headerlink" title="3. GA4 是否適用於 WordPress？"></a><strong>3. GA4 是否適用於 WordPress？</strong></h3><p>是的，可使用 Google Site Kit 或 GTM 來安裝 GA4 追蹤碼。</p>
+<hr>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a><strong>結論</strong></h2><p>GA4 是 <strong>未來網站數據分析的核心工具</strong>，其事件導向的設計、大數據分析能力與 AI 預測，使其成為 <strong>SEO、行銷與網站優化的必備工具</strong>。隨著 GA4 的普及，建議所有企業 <strong>盡早升級</strong>，以掌握市場競爭優勢。</p>
+<p>如果你正在尋找 <strong>GA4 數據分析與 SEO 優化方案</strong>，現在就開始行動，確保你的網站能夠在未來的數據時代中保持競爭力！</p>
+
+  </div>
+  <div>
+    
+      <div 
+        class="post-note note-info copyright" 
+        style="margin-top: 42px">
+        <p>
+          <span style="font-weight: bold;">作者：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="/about">
+            樂創數位行銷
+          </a>
+        </p>
+        <p>
+          <span style="font-weight: bold;">本文連結：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="https://blog.websiteszoo.com/2025/02/15/ga4intr/">
+            https://blog.websiteszoo.com/2025/02/15/ga4intr/
+          </a>
+        </p>
+        <p><span style="font-weight: bold;">版權聲明</span>本網站所有文章除特別聲明外，均採用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 授權</a>。請標明文章出處！</p>
+      </div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2025/02/15/choosehost/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">上一篇</div>
+          
+            <div class="nav-title">網站架設指南：主機與網址的用途及網址選擇建議【完整解析】 </div>
+          
+        </div>
+      </a>
+    </div>
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2025/02/15/https/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">下一篇</div>
+          
+            <div class="nav-title">為什麼 HTTPS 很重要？完整指南及網站 HTTPS 設定教學（2025) </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目錄
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GA4-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-text">GA4 是什麼？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GA4-%E8%88%87-UA-%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E7%95%B0"><span class="toc-text">GA4 與 UA 的主要差異</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GA4-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="toc-text">GA4 的核心功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3-%E4%BA%8B%E4%BB%B6%E5%B0%8E%E5%90%91%E7%9A%84%E6%95%B8%E6%93%9A%E6%A8%A1%E5%9E%8B"><span class="toc-text">1️⃣ 事件導向的數據模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%B8%8F%E2%83%A3-%E8%87%AA%E5%8B%95%E6%94%B6%E9%9B%86%E4%BA%8B%E4%BB%B6-Enhanced-Measurement"><span class="toc-text">2️⃣ 自動收集事件 (Enhanced Measurement)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%B8%8F%E2%83%A3-AI-%E9%A0%90%E6%B8%AC%E5%8A%9F%E8%83%BD"><span class="toc-text">3️⃣ AI 預測功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%B8%8F%E2%83%A3-%E8%B7%A8%E8%A3%9D%E7%BD%AE%E8%88%87%E8%B7%A8%E5%B9%B3%E5%8F%B0%E8%BF%BD%E8%B9%A4"><span class="toc-text">4️⃣ 跨裝置與跨平台追蹤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%EF%B8%8F%E2%83%A3-%E9%9A%B1%E7%A7%81%E4%BF%9D%E8%AD%B7%E8%88%87%E7%84%A1-Cookie-%E8%BF%BD%E8%B9%A4"><span class="toc-text">5️⃣ 隱私保護與無 Cookie 追蹤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A8%AD%E5%AE%9A-GA4"><span class="toc-text">如何設定 GA4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E5%BB%BA%E7%AB%8B-GA4-%E5%B8%B3%E6%88%B6"><span class="toc-text">步驟 1：建立 GA4 帳戶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E5%AE%89%E8%A3%9D-GA4-%E8%BF%BD%E8%B9%A4%E7%A2%BC"><span class="toc-text">步驟 2：安裝 GA4 追蹤碼</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-1%EF%BC%9A%E7%9B%B4%E6%8E%A5%E5%B5%8C%E5%85%A5%E7%B6%B2%E7%AB%99"><span class="toc-text">方法 1：直接嵌入網站</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-2%EF%BC%9A%E4%BD%BF%E7%94%A8-Google-Tag-Manager"><span class="toc-text">方法 2：使用 Google Tag Manager</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GA4-%E5%9C%A8-SEO-%E7%9A%84%E6%87%89%E7%94%A8"><span class="toc-text">GA4 在 SEO 的應用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3-%E8%BF%BD%E8%B9%A4%E7%B6%B2%E7%AB%99%E6%B5%81%E9%87%8F%E4%BE%86%E6%BA%90"><span class="toc-text">1️⃣ 追蹤網站流量來源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%B8%8F%E2%83%A3-%E7%9B%A3%E6%B8%AC%E7%94%A8%E6%88%B6%E8%A1%8C%E7%82%BA"><span class="toc-text">2️⃣ 監測用戶行為</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%B8%8F%E2%83%A3-%E4%BA%8B%E4%BB%B6%E8%BF%BD%E8%B9%A4%E8%88%87%E8%BD%89%E6%8F%9B%E8%A8%AD%E5%AE%9A"><span class="toc-text">3️⃣ 事件追蹤與轉換設定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%B8%8F%E2%83%A3-%E8%A8%AD%E5%AE%9A-GA4-SEO-%E5%84%80%E8%A1%A8%E6%9D%BF"><span class="toc-text">4️⃣ 設定 GA4 SEO 儀表板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GA4-%E7%9A%84%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-text">GA4 的常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-GA4-%E6%98%AF%E5%90%A6%E6%9C%83%E5%BD%B1%E9%9F%BF%E5%8E%9F%E6%9C%AC%E7%9A%84-UA-%E6%95%B8%E6%93%9A%EF%BC%9F"><span class="toc-text">1. GA4 是否會影響原本的 UA 數據？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A6%82%E4%BD%95%E8%BF%BD%E8%B9%A4%E7%89%B9%E5%AE%9A%E7%9A%84%E6%8C%89%E9%88%95%E9%BB%9E%E6%93%8A%EF%BC%9F"><span class="toc-text">2. 如何追蹤特定的按鈕點擊？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-GA4-%E6%98%AF%E5%90%A6%E9%81%A9%E7%94%A8%E6%96%BC-WordPress%EF%BC%9F"><span class="toc-text">3. GA4 是否適用於 WordPress？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
+</div>
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目錄
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GA4-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-text">GA4 是什麼？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GA4-%E8%88%87-UA-%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%AE%E7%95%B0"><span class="toc-text">GA4 與 UA 的主要差異</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GA4-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="toc-text">GA4 的核心功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3-%E4%BA%8B%E4%BB%B6%E5%B0%8E%E5%90%91%E7%9A%84%E6%95%B8%E6%93%9A%E6%A8%A1%E5%9E%8B"><span class="toc-text">1️⃣ 事件導向的數據模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%B8%8F%E2%83%A3-%E8%87%AA%E5%8B%95%E6%94%B6%E9%9B%86%E4%BA%8B%E4%BB%B6-Enhanced-Measurement"><span class="toc-text">2️⃣ 自動收集事件 (Enhanced Measurement)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%B8%8F%E2%83%A3-AI-%E9%A0%90%E6%B8%AC%E5%8A%9F%E8%83%BD"><span class="toc-text">3️⃣ AI 預測功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%B8%8F%E2%83%A3-%E8%B7%A8%E8%A3%9D%E7%BD%AE%E8%88%87%E8%B7%A8%E5%B9%B3%E5%8F%B0%E8%BF%BD%E8%B9%A4"><span class="toc-text">4️⃣ 跨裝置與跨平台追蹤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%EF%B8%8F%E2%83%A3-%E9%9A%B1%E7%A7%81%E4%BF%9D%E8%AD%B7%E8%88%87%E7%84%A1-Cookie-%E8%BF%BD%E8%B9%A4"><span class="toc-text">5️⃣ 隱私保護與無 Cookie 追蹤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A8%AD%E5%AE%9A-GA4"><span class="toc-text">如何設定 GA4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-1%EF%BC%9A%E5%BB%BA%E7%AB%8B-GA4-%E5%B8%B3%E6%88%B6"><span class="toc-text">步驟 1：建立 GA4 帳戶</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F-2%EF%BC%9A%E5%AE%89%E8%A3%9D-GA4-%E8%BF%BD%E8%B9%A4%E7%A2%BC"><span class="toc-text">步驟 2：安裝 GA4 追蹤碼</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-1%EF%BC%9A%E7%9B%B4%E6%8E%A5%E5%B5%8C%E5%85%A5%E7%B6%B2%E7%AB%99"><span class="toc-text">方法 1：直接嵌入網站</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-2%EF%BC%9A%E4%BD%BF%E7%94%A8-Google-Tag-Manager"><span class="toc-text">方法 2：使用 Google Tag Manager</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GA4-%E5%9C%A8-SEO-%E7%9A%84%E6%87%89%E7%94%A8"><span class="toc-text">GA4 在 SEO 的應用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3-%E8%BF%BD%E8%B9%A4%E7%B6%B2%E7%AB%99%E6%B5%81%E9%87%8F%E4%BE%86%E6%BA%90"><span class="toc-text">1️⃣ 追蹤網站流量來源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%B8%8F%E2%83%A3-%E7%9B%A3%E6%B8%AC%E7%94%A8%E6%88%B6%E8%A1%8C%E7%82%BA"><span class="toc-text">2️⃣ 監測用戶行為</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%B8%8F%E2%83%A3-%E4%BA%8B%E4%BB%B6%E8%BF%BD%E8%B9%A4%E8%88%87%E8%BD%89%E6%8F%9B%E8%A8%AD%E5%AE%9A"><span class="toc-text">3️⃣ 事件追蹤與轉換設定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%B8%8F%E2%83%A3-%E8%A8%AD%E5%AE%9A-GA4-SEO-%E5%84%80%E8%A1%A8%E6%9D%BF"><span class="toc-text">4️⃣ 設定 GA4 SEO 儀表板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GA4-%E7%9A%84%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-text">GA4 的常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-GA4-%E6%98%AF%E5%90%A6%E6%9C%83%E5%BD%B1%E9%9F%BF%E5%8E%9F%E6%9C%AC%E7%9A%84-UA-%E6%95%B8%E6%93%9A%EF%BC%9F"><span class="toc-text">1. GA4 是否會影響原本的 UA 數據？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A6%82%E4%BD%95%E8%BF%BD%E8%B9%A4%E7%89%B9%E5%AE%9A%E7%9A%84%E6%8C%89%E9%88%95%E9%BB%9E%E6%93%8A%EF%BC%9F"><span class="toc-text">2. 如何追蹤特定的按鈕點擊？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-GA4-%E6%98%AF%E5%90%A6%E9%81%A9%E7%94%A8%E6%96%BC-WordPress%EF%BC%9F"><span class="toc-text">3. GA4 是否適用於 WordPress？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>最新文章
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2025-02-15</div>
+        <a href="/2025/02/15/cdnintr/"><div class="recent-posts-item-content">什麼是 CDN？網站加速與安全最佳解決方案（2025 完整指南）</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2025-02-15</div>
+        <a href="/2025/02/15/choosehost/"><div class="recent-posts-item-content">網站架設指南：主機與網址的用途及網址選擇建議【完整解析】</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2025-02-15</div>
+        <a href="/2025/02/15/ga4intr/"><div class="recent-posts-item-content">GA4 完整介紹與實作指南：網站數據分析新時代</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2025-02-15</div>
+        <a href="/2025/02/15/https/"><div class="recent-posts-item-content">為什麼 HTTPS 很重要？完整指南及網站 HTTPS 設定教學（2025)</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2020
+          
+          
+                - 
+                2025
+          
+        </span>
+        &nbsp;
+        <a 
+          href="/" 
+          class="footer-link">
+          樂創布拉格
+        </a>
+      </div>
+    </div>
+
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+    
+      <script>
+        setTimeout(() => {localSearch("/search.json")}, 0)
+      </script>
+    
+  </body>
+</html>

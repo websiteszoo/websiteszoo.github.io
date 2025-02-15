@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="樂創布拉格">
+  <link 
+    rel="icon" 
+    href="/img/logo.png">
+  <title>網頁開發常見問題與解決方案：完整指南（2025)</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="網頁開發常見問題與解決方案：完整指南（2025)">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://blog.websiteszoo.com/2025/02/15/webqa2025/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/img/logo.png">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2025-02-15">
+      <meta 
+        property="og:article:modified_time" 
+        content="2025-02-15">
+      <meta 
+        property="og:article:author" 
+        content="樂創數位行銷">
+      
+        
+          <meta 
+            property="og:article:tag" 
+            content="網頁開發">
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+        <img 
+          class="navbar-logo-img"
+          width="32"
+          height="32"
+          src="/img/logo.png" 
+          alt="blog logo">
+      
+      <span class="navbar-logo-dsc">樂創布拉格</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/" 
+        class="navbar-menu-item">
+        
+          首頁
+        
+      </a>
+    
+      <a 
+        target="_blank" rel="noopener" href="https://websiteszoo.com" 
+        class="navbar-menu-item">
+        
+          樂創官網
+        
+      </a>
+    
+      <a 
+        href="/tags" 
+        class="navbar-menu-item">
+        
+          標籤
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          分類
+        
+      </a>
+    
+     <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark"
+      style="display: none;">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="請輸入查詢內容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/img/logo.png" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">樂創數位行銷</p>
+<p class="author-description"></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>7</span>
+    <span>文章</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>2</span>
+    <span>分類</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>4</span>
+    <span>標籤</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目錄
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9B%B8%E5%AE%B9%E6%80%A7%E5%95%8F%E9%A1%8C"><span class="toc-text">1. 瀏覽器相容性問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%B6%B2%E7%AB%99%E8%BC%89%E5%85%A5%E9%80%9F%E5%BA%A6%E6%85%A2"><span class="toc-text">2. 網站載入速度慢</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-1"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-1"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-SEO-%E4%B8%8D%E4%BD%B3%EF%BC%8C%E6%8E%92%E5%90%8D%E7%84%A1%E6%B3%95%E6%8F%90%E5%8D%87"><span class="toc-text">3. SEO 不佳，排名無法提升</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-2"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-2"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%9F%BF%E6%87%89%E5%BC%8F%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C"><span class="toc-text">4. 響應式設計問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-3"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-3"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%A1%A8%E5%96%AE%E9%A9%97%E8%AD%89%E8%88%87%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-text">5. 表單驗證與安全性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-4"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-4"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-API-%E9%80%A3%E7%B7%9A%E9%8C%AF%E8%AA%A4"><span class="toc-text">6. API 連線錯誤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-5"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-5"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>分類
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC/">
+        <div class="categories-list-item">
+          網頁開發
+          <span class="categories-list-item-badge">4</span>
+        </div>
+      </a>
+    
+      <a href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+        <div class="categories-list-item">
+          網路行銷
+          <span class="categories-list-item-badge">3</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>熱門標籤
+  </div>
+  <div class="tags-list">
+    
+      <a 
+        href="/tags/%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC/" 
+        title="網頁開發">
+        <div class="tags-list-item">網頁開發</div>
+      </a>
+    
+      <a 
+        href="/tags/SEO/" 
+        title="SEO">
+        <div class="tags-list-item">SEO</div>
+      </a>
+    
+      <a 
+        href="/tags/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/" 
+        title="網路行銷">
+        <div class="tags-list-item">網路行銷</div>
+      </a>
+    
+      <a 
+        href="/tags/%E7%B6%B2%E8%B7%AF%E5%AE%89%E5%85%A8/" 
+        title="網路安全">
+        <div class="tags-list-item">網路安全</div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      網頁開發常見問題與解決方案：完整指南（2025)
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2025-02-14T16:00:00.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2025-02-15</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC/" 
+          class="post-meta-link">
+          網頁開發
+        </a>
+      
+    
+    
+  </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/%E7%B6%B2%E9%A0%81%E9%96%8B%E7%99%BC/" 
+            class="post-meta-link">
+            網頁開發
+          </a>
+        
+      </div>
+    </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <p>在網頁開發的過程中，工程師常常會遇到各種技術問題，這些問題可能會影響網站的功能、使用者體驗、效能，甚至 SEO（搜尋引擎最佳化）。本篇文章將深入探討網頁開發常見的問題，並提供對應的解決方案，幫助開發者提升開發效率與網站品質。</p>
+<hr>
+<h2 id="1-瀏覽器相容性問題"><a href="#1-瀏覽器相容性問題" class="headerlink" title="1. 瀏覽器相容性問題"></a><strong>1. 瀏覽器相容性問題</strong></h2><h3 id="問題描述"><a href="#問題描述" class="headerlink" title="問題描述"></a><strong>問題描述</strong></h3><p>不同瀏覽器（如 Chrome、Firefox、Safari、Edge）對於 HTML、CSS 和 JavaScript 的解析方式可能不同，導致網站在不同裝置上顯示不一致，甚至功能異常。</p>
+<h3 id="解決方案"><a href="#解決方案" class="headerlink" title="解決方案"></a><strong>解決方案</strong></h3><ol>
+<li><p><strong>使用標準 HTML 與 CSS</strong></p>
+<ul>
+<li>避免使用不被廣泛支援的 CSS 屬性（如 <code>-webkit-</code>、<code>-moz-</code>）。</li>
+<li>參考 <a target="_blank" rel="noopener" href="https://caniuse.com/">Can I use</a> 查詢瀏覽器相容性。</li>
+</ul>
+</li>
+<li><p><strong>CSS 重置與標準化</strong></p>
+<ul>
+<li>使用 normalize.css 或 reset.css 來統一不同瀏覽器的預設樣式。</li>
+</ul>
+</li>
+<li><p><strong>測試跨瀏覽器相容性</strong></p>
+<ul>
+<li>使用工具如 <strong>BrowserStack</strong> 或 <strong>Lambdatest</strong> 來模擬不同瀏覽器環境測試。</li>
+</ul>
+</li>
+<li><p><strong>Polyfill 支援舊版瀏覽器</strong></p>
+<ul>
+<li>使用 babel-polyfill 讓舊瀏覽器支援新的 JavaScript 語法。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="2-網站載入速度慢"><a href="#2-網站載入速度慢" class="headerlink" title="2. 網站載入速度慢"></a><strong>2. 網站載入速度慢</strong></h2><h3 id="問題描述-1"><a href="#問題描述-1" class="headerlink" title="問題描述"></a><strong>問題描述</strong></h3><p>網站加載時間過長，影響使用者體驗與 SEO 排名。Google 建議網站載入時間應低於 3 秒。</p>
+<h3 id="解決方案-1"><a href="#解決方案-1" class="headerlink" title="解決方案"></a><strong>解決方案</strong></h3><ol>
+<li><p><strong>圖片優化</strong></p>
+<ul>
+<li>使用 WebP 格式，減少圖片體積。</li>
+<li>運用 Lazy Loading（延遲載入），如 <code>&lt;img loading=&quot;lazy&quot;&gt;</code>。</li>
+</ul>
+</li>
+<li><p><strong>CSS &amp; JavaScript 最佳化</strong></p>
+<ul>
+<li>最小化（minify）CSS 和 JS 檔案（可使用 Terser 或 <code>UglifyJS</code>）。</li>
+<li>避免阻塞渲染的 JavaScript（將 JS 檔案放置於 <body> 結尾，或使用 defer 屬性）。</li>
+</ul>
+</li>
+<li><p><strong>啟用 Gzip 或 Brotli 壓縮</strong></p>
+<ul>
+<li>在伺服器端啟用 <strong>Gzip</strong> 或 <strong>Brotli</strong> 來壓縮傳輸內容，提升頁面載入速度。</li>
+</ul>
+</li>
+<li><p><strong>使用 CDN</strong></p>
+<ul>
+<li>將靜態資源（圖片、CSS、JS）存放於 <strong>CDN（內容傳遞網路）</strong>，加速全球用戶存取速度。</li>
+</ul>
+</li>
+<li><p><strong>快取機制</strong></p>
+<ul>
+<li>設定 <code>Cache-Control</code>、<code>Expires</code> 頭部標籤，讓重複訪問的用戶從快取載入資源。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="3-SEO-不佳，排名無法提升"><a href="#3-SEO-不佳，排名無法提升" class="headerlink" title="3. SEO 不佳，排名無法提升"></a><strong>3. SEO 不佳，排名無法提升</strong></h2><h3 id="問題描述-2"><a href="#問題描述-2" class="headerlink" title="問題描述"></a><strong>問題描述</strong></h3><p>網站內容豐富，但搜尋排名仍然不佳，可能是技術 SEO 設定有問題。</p>
+<h3 id="解決方案-2"><a href="#解決方案-2" class="headerlink" title="解決方案"></a><strong>解決方案</strong></h3><ol>
+<li><p><strong>確保語意化 HTML 結構</strong></p>
+<ul>
+<li>使用適當的 <code>h1</code>、<code>h2</code>、<code>h3</code> 標籤來組織內容，使搜尋引擎更容易解析。</li>
+</ul>
+</li>
+<li><p><strong>設定 meta 標籤</strong></p>
+<ul>
+<li>title 和 meta description 應該包含關鍵字，吸引用戶點擊：</li>
+</ul>
+</li>
+</ol>
+<pre class="highlight"><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>網頁開發常見問題與解決方案 | 網站最佳化指南<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">&quot;description&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">&quot;解決網頁開發的常見問題，包括瀏覽器相容性、網站速度、SEO 設定等，提升用戶體驗與搜尋引擎排名。&quot;</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre>
+
+<ol start="3">
+<li><strong>網站架構與內部連結</strong><ul>
+<li>設定 <strong>麵包屑導航（Breadcrumb）</strong>，幫助搜尋引擎了解網站結構：</li>
+</ul>
+</li>
+</ol>
+<pre class="highlight"><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/&quot;</span>&gt;</span>首頁<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/blog/&quot;</span>&gt;</span>部落格<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>網頁開發問題<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br></pre>
+
+<ol start="4">
+<li><strong>建立 XML Sitemap</strong><ul>
+<li>讓搜尋引擎更容易索引網站：</li>
+</ul>
+</li>
+</ol>
+<pre class="highlight"><span class="line"><span class="tag">&lt;<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">loc</span>&gt;</span>https://yourwebsite.com/page<span class="tag">&lt;/<span class="name">loc</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">lastmod</span>&gt;</span>2025-02-15<span class="tag">&lt;/<span class="name">lastmod</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">changefreq</span>&gt;</span>monthly<span class="tag">&lt;/<span class="name">changefreq</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">priority</span>&gt;</span>0.8<span class="tag">&lt;/<span class="name">priority</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br></pre>
+
+<ol start="5">
+<li><strong>提升頁面載入速度</strong><ul>
+<li>Google 會將 <strong>網站速度</strong> 作為 SEO 排名因素，請參考上方的「網站載入速度」解決方案。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="4-響應式設計問題"><a href="#4-響應式設計問題" class="headerlink" title="4. 響應式設計問題"></a><strong>4. 響應式設計問題</strong></h2><h3 id="問題描述-3"><a href="#問題描述-3" class="headerlink" title="問題描述"></a><strong>問題描述</strong></h3><p>網站在手機、平板與桌機上的顯示效果不一致，影響使用者體驗。</p>
+<h3 id="解決方案-3"><a href="#解決方案-3" class="headerlink" title="解決方案"></a><strong>解決方案</strong></h3><ol>
+<li><strong>使用 Meta Viewport</strong></li>
+</ol>
+<pre class="highlight"><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br></pre>
+
+<ol start="2">
+<li><strong>CSS Media Query</strong></li>
+</ol>
+<pre class="highlight"><span class="line"><span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre>
+
+<ol start="3">
+<li><strong>優先使用 Flexbox 或 Grid</strong><ul>
+<li>避免使用 <code>float</code>，改用 display: flex; 或 display: grid; 設計響應式佈局。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="5-表單驗證與安全性"><a href="#5-表單驗證與安全性" class="headerlink" title="5. 表單驗證與安全性"></a><strong>5. 表單驗證與安全性</strong></h2><h3 id="問題描述-4"><a href="#問題描述-4" class="headerlink" title="問題描述"></a><strong>問題描述</strong></h3><p>表單未進行適當驗證，導致用戶輸入錯誤或遭受攻擊（如 SQL 注入、XSS）。</p>
+<h3 id="解決方案-4"><a href="#解決方案-4" class="headerlink" title="解決方案"></a><strong>解決方案</strong></h3><ol>
+<li><strong>使用 HTML5 表單驗證</strong></li>
+</ol>
+<pre class="highlight"><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;email&quot;</span> <span class="attr">required</span> /&gt;</span></span><br></pre>
+
+<ol start="2">
+<li><p><strong>伺服器端驗證</strong></p>
+<ul>
+<li>在 PHP 或 Node.js 進行額外的驗證，防止惡意數據提交。</li>
+</ul>
+</li>
+<li><p><strong>防範 XSS（跨站腳本攻擊）</strong></p>
+<ul>
+<li>使用 htmlspecialchars() 轉義輸入值：</li>
+</ul>
+</li>
+</ol>
+<pre class="highlight"><span class="line"><span class="variable">$safe_input</span> = <span class="title function_ invoke__">htmlspecialchars</span>($\_POST[<span class="string">&#x27;input&#x27;</span>], ENT_QUOTES, <span class="string">&#x27;UTF-8&#x27;</span>);</span><br></pre>
+
+<ol start="4">
+<li><strong>使用 CSRF Token 防禦 CSRF 攻擊</strong></li>
+</ol>
+<pre class="highlight"><span class="line">html</span><br><span class="line">&lt;input type=&quot;hidden&quot; name=&quot;csrf_token&quot; value=&quot;123456789&quot;&gt;</span><br></pre>
+
+<hr>
+<h2 id="6-API-連線錯誤"><a href="#6-API-連線錯誤" class="headerlink" title="6. API 連線錯誤"></a><strong>6. API 連線錯誤</strong></h2><h3 id="問題描述-5"><a href="#問題描述-5" class="headerlink" title="問題描述"></a><strong>問題描述</strong></h3><p>前端與後端 API 溝通時出現錯誤，可能是 CORS 限制、超時、或錯誤的請求格式。</p>
+<h3 id="解決方案-5"><a href="#解決方案-5" class="headerlink" title="解決方案"></a><strong>解決方案</strong></h3><ol>
+<li><strong>啟用 CORS（跨來源請求）</strong><ul>
+<li>在後端（PHP &#x2F; Node.js）允許特定來源存取：</li>
+</ul>
+</li>
+</ol>
+<pre class="highlight"><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&quot;Access-Control-Allow-Origin: https://yourwebsite.com&quot;</span>);</span><br></pre>
+
+<ol start="2">
+<li><strong>正確處理 API 請求</strong></li>
+</ol>
+<pre class="highlight"><span class="line"><span class="title function_">fetch</span>(<span class="string">&quot;https://api.example.com/data&quot;</span>)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> response.<span class="title function_">json</span>())</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(data))</span><br><span class="line">  .<span class="title function_">catch</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;錯誤:&quot;</span>, error));</span><br></pre>
+
+<hr>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a><strong>結論</strong></h2><p>網頁開發是一個需要不斷學習與優化的過程，常見的問題如 <strong>瀏覽器相容性、載入速度、SEO、響應式設計、表單安全性、API 連線</strong> 等，都有對應的解決方案。希望本篇文章能幫助你提升開發效率，打造更優質的網站！</p>
+<p><strong>如果覺得這篇文章有幫助，請分享給更多開發者！</strong></p>
+
+  </div>
+  <div>
+    
+      <div 
+        class="post-note note-info copyright" 
+        style="margin-top: 42px">
+        <p>
+          <span style="font-weight: bold;">作者：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="/about">
+            樂創數位行銷
+          </a>
+        </p>
+        <p>
+          <span style="font-weight: bold;">本文連結：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="https://blog.websiteszoo.com/2025/02/15/webqa2025/">
+            https://blog.websiteszoo.com/2025/02/15/webqa2025/
+          </a>
+        </p>
+        <p><span style="font-weight: bold;">版權聲明</span>本網站所有文章除特別聲明外，均採用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 授權</a>。請標明文章出處！</p>
+      </div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2025/02/15/seointr/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">上一篇</div>
+          
+            <div class="nav-title">SEO 是什麼？為什麼 SEO 這麼重要？完整解析與實踐指南 </div>
+          
+        </div>
+      </a>
+    </div>
+  
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目錄
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9B%B8%E5%AE%B9%E6%80%A7%E5%95%8F%E9%A1%8C"><span class="toc-text">1. 瀏覽器相容性問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%B6%B2%E7%AB%99%E8%BC%89%E5%85%A5%E9%80%9F%E5%BA%A6%E6%85%A2"><span class="toc-text">2. 網站載入速度慢</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-1"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-1"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-SEO-%E4%B8%8D%E4%BD%B3%EF%BC%8C%E6%8E%92%E5%90%8D%E7%84%A1%E6%B3%95%E6%8F%90%E5%8D%87"><span class="toc-text">3. SEO 不佳，排名無法提升</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-2"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-2"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%9F%BF%E6%87%89%E5%BC%8F%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C"><span class="toc-text">4. 響應式設計問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-3"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-3"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%A1%A8%E5%96%AE%E9%A9%97%E8%AD%89%E8%88%87%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-text">5. 表單驗證與安全性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-4"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-4"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-API-%E9%80%A3%E7%B7%9A%E9%8C%AF%E8%AA%A4"><span class="toc-text">6. API 連線錯誤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-5"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-5"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
+</div>
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目錄
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9B%B8%E5%AE%B9%E6%80%A7%E5%95%8F%E9%A1%8C"><span class="toc-text">1. 瀏覽器相容性問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%B6%B2%E7%AB%99%E8%BC%89%E5%85%A5%E9%80%9F%E5%BA%A6%E6%85%A2"><span class="toc-text">2. 網站載入速度慢</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-1"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-1"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-SEO-%E4%B8%8D%E4%BD%B3%EF%BC%8C%E6%8E%92%E5%90%8D%E7%84%A1%E6%B3%95%E6%8F%90%E5%8D%87"><span class="toc-text">3. SEO 不佳，排名無法提升</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-2"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-2"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%9F%BF%E6%87%89%E5%BC%8F%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C"><span class="toc-text">4. 響應式設計問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-3"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-3"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%A1%A8%E5%96%AE%E9%A9%97%E8%AD%89%E8%88%87%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-text">5. 表單驗證與安全性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-4"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-4"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-API-%E9%80%A3%E7%B7%9A%E9%8C%AF%E8%AA%A4"><span class="toc-text">6. API 連線錯誤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%8F%E9%A1%8C%E6%8F%8F%E8%BF%B0-5"><span class="toc-text">問題描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-5"><span class="toc-text">解決方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-text">結論</span></a></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>最新文章
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2025-02-15</div>
+        <a href="/2025/02/15/cdnintr/"><div class="recent-posts-item-content">什麼是 CDN？網站加速與安全最佳解決方案（2025 完整指南）</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2025-02-15</div>
+        <a href="/2025/02/15/choosehost/"><div class="recent-posts-item-content">網站架設指南：主機與網址的用途及網址選擇建議【完整解析】</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2025-02-15</div>
+        <a href="/2025/02/15/ga4intr/"><div class="recent-posts-item-content">GA4 完整介紹與實作指南：網站數據分析新時代</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2025-02-15</div>
+        <a href="/2025/02/15/https/"><div class="recent-posts-item-content">為什麼 HTTPS 很重要？完整指南及網站 HTTPS 設定教學（2025)</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2020
+          
+          
+                - 
+                2025
+          
+        </span>
+        &nbsp;
+        <a 
+          href="/" 
+          class="footer-link">
+          樂創布拉格
+        </a>
+      </div>
+    </div>
+
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+    
+      <script>
+        setTimeout(() => {localSearch("/search.json")}, 0)
+      </script>
+    
+  </body>
+</html>
